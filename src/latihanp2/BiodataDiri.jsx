@@ -14,7 +14,7 @@ const BiodataDiri = () => {
     nim: "2457301122",
     jurusan: "Sistem Informasi",
     kampus: "Politeknik Caltex Riau",
-    moto: "If you can dream it, then you can make it happen",
+    moto: "Iff you can dream it, then you can make it happen",
     sumberMoto: "Ridho Prasetyo",
   };
 
