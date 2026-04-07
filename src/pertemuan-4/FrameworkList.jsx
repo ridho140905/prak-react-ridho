@@ -2,40 +2,38 @@ import frameworkData from "./framework.json";
 
 export default function FrameworkList() {
   return (
-    <div className="p-8">
-      {frameworkData.map((item) => (
-        <div
-          key={item.id}
-          className="border p-4 mb-4 rounded-lg shadow-md bg-white"
-        >
-          <h2 className="text-lg font-bold text-gray-800">{item.name}</h2>
-          <p className="text-gray-600">{item.description}</p>
-          <p className="text-sm text-gray-500">
-            Developer: {item.details.developer}
-          </p>
-          <p className="text-sm text-gray-500">
-            Release Year: {item.details.releaseYear}
-          </p>
+   <div className="p-6 bg-gray-900 min-h-screen">
+  <div className="max-w-2xl mx-auto space-y-4">
+    {frameworkData.map((item) => (
+      <div
+        key={item.id}
+        className="bg-gray-800 border border-gray-700 p-5 rounded-xl hover:border-blue-500 transition-colors"
+      >
+        <h2 className="text-lg font-bold text-white mb-1">
+          {item.name}
+        </h2>
+        <p className="text-gray-400 text-sm mb-3">
+          {item.description}
+        </p>
+        
+        <div className="flex items-center gap-4 text-xs text-gray-500 mb-3">
+          <span>👤 {item.details.developer}</span>
+          <span>📅 {item.details.releaseYear}</span>
+        </div>
 
-          <a
-            href={item.details.officialWebsite}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 hover:underline"
-          >
-            Visit Official Website
-          </a>
-
+        <div className="flex flex-wrap gap-2">
           {item.tags.map((tag, index) => (
             <span
               key={index}
-              className="bg-gray-200 text-gray-700 px-2 py-1 text-xs rounded-full mr-2"
+              className="bg-gray-700 text-gray-300 px-2 py-1 rounded text-xs"
             >
-              {tag}
+              #{tag}
             </span>
           ))}
         </div>
-      ))}
-    </div>
-  );
+      </div>
+    ))}
+  </div>
+</div>
+  )
 }
