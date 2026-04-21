@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 
 export default function Sidebar() {
+    const menuClass = `flex cursor-pointer items-center rounded-xl p-4 space-x-2
+    text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold`
     return (
         <div id="sidebar" className="flex min-h-screen w-90 flex-col bg-white p-10 shadow-lg">
             
@@ -19,25 +21,25 @@ export default function Sidebar() {
             <div id="sidebar-menu" className="mt-10">
                 <ul id="menu-list" className="space-y-3">
                     <li>
-                        <Link id="menu-1" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
+                        <Link id="menu-1" to="/" className={menuClass}>
                             <MdDashboard className="mr-4 text-xl" />
                             <span>Dashboard</span>
                         </Link>
                     </li>
                     <li>
-                        <Link id="menu-2" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
+                        <Link id="menu-2" to="/Orders"className={menuClass}>
                             <MdShoppingCart className="mr-4 text-xl" />
                             <span>Orders</span>
                         </Link>
                     </li>
                     <li>
-                        <Link id="menu-3" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
+                        <Link id="menu-3" to="/Customers"className={menuClass}>
                             <MdPeople className="mr-4 text-xl" />
                             <span>Customers</span>
                         </Link>
                     </li>
                    <li>
-                        <Link id="menu-4" className="hover:text-hijau flex cursor-pointer items-center rounded-xl p-4 font-medium text-gray-600 hover:bg-green-200 hover:font-extrabold">
+                        <Link id="menu-4" to="/Analytics"className={menuClass}>
                             <MdAnalytics className="mr-4 text-xl" />
                             <span>Analytics</span> 
                         </Link>
