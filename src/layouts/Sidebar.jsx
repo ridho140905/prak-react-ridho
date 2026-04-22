@@ -1,4 +1,4 @@
-import { MdDashboard, MdShoppingCart, MdPeople, MdAnalytics, MdAdd } from "react-icons/md";
+import { MdDashboard, MdShoppingCart, MdPeople, MdAnalytics, MdAdd, MdErrorOutline } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 
 
@@ -22,28 +22,58 @@ export default function Sidebar() {
             </div>
 
             {/* List Menu */}
-            <div id="sidebar-menu" className="mt-10">
-                <ul id="menu-list" className="space-y-3">
+            <ul id="menu-list" className="space-y-3">
+                    {/* Menu yang sudah ada */}
                     <li>
-                        <NavLink id="menu-1" to="/" className={menuClass}>
+                        <NavLink to="/" className={menuClass}>
                             <MdDashboard className="mr-4 text-xl" />
                             <span>Dashboard</span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink id="menu-2" to="/orders" className={menuClass}>
+                        <NavLink to="/orders" className={menuClass}>
                             <MdShoppingCart className="mr-4 text-xl" />
                             <span>Orders</span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink id="menu-3" to="/customers" className={menuClass}>
+                        <NavLink to="/customers" className={menuClass}>
                             <MdPeople className="mr-4 text-xl" />
                             <span>Customers</span>
                         </NavLink>
                     </li> 
+
+                    {/* PEMBATAS (Opsional agar rapi) */}
+                    <div className="pt-4 pb-2">
+                        <p className="text-xs font-bold text-gray-400 uppercase">Error Pages</p>
+                    </div>
+
+                    {/* MENU ERROR BARU */}
+                    <li>
+                        <NavLink to="/error-400" className={menuClass}>
+                            <MdErrorOutline className="mr-4 text-xl" />
+                            <span>Error 400</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/error-401" className={menuClass}>
+                            <MdErrorOutline className="mr-4 text-xl" />
+                            <span>Error 401</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/error-403" className={menuClass}>
+                            <MdErrorOutline className="mr-4 text-xl" />
+                            <span>Error 403</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/error-404" className={menuClass}>
+                            <MdErrorOutline className="mr-4 text-xl" />
+                            <span>Error 404</span>
+                        </NavLink>
+                    </li>
                 </ul>
-            </div>
 
             {/* Footer */}
             <div id="sidebar-footer" className="mt-auto">
