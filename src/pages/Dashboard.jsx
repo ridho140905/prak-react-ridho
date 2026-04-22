@@ -53,13 +53,16 @@ export default function Dashboard() {
 
     return (
         <div id="dashboard-container" className="pb-10">
-            <PageHeader />
+            
+            <PageHeader 
+                title="Dashboard" 
+                breadcrumb={["Dashboard"]} 
+            />
 
-            {/* Grid Card Lengkap (4 Kotak) */}
+            {/* Grid Card Lengkap (4 Kotak tanpa garis bawah) */}
             <div id="dashboard-grid" className="p-5 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
                 
-                {/* Orders Card */}
-                <div className="flex items-center space-x-5 bg-white rounded-xl shadow-sm p-4 border-b-4 border-green-500">
+                <div className="flex items-center space-x-5 bg-white rounded-xl shadow-sm p-4">
                     <div className="bg-green-500 rounded-full p-4 text-white shadow-lg shadow-green-100">
                         <FaShoppingCart className="text-xl" />
                     </div>
@@ -69,8 +72,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                {/* Delivered Card */}
-                <div className="flex items-center space-x-5 bg-white rounded-xl shadow-sm p-4 border-b-4 border-blue-500">
+                <div className="flex items-center space-x-5 bg-white rounded-xl shadow-sm p-4">
                     <div className="bg-blue-500 rounded-full p-4 text-white shadow-lg shadow-blue-100">
                         <FaTruck className="text-xl" />
                     </div>
@@ -80,8 +82,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                {/* Canceled Card */}
-                <div className="flex items-center space-x-5 bg-white rounded-xl shadow-sm p-4 border-b-4 border-red-500">
+                <div className="flex items-center space-x-5 bg-white rounded-xl shadow-sm p-4">
                     <div className="bg-red-500 rounded-full p-4 text-white shadow-lg shadow-red-100">
                         <FaBan className="text-xl" />
                     </div>
@@ -91,8 +92,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
-                {/* Revenue Card */}
-                <div className="flex items-center space-x-5 bg-white rounded-xl shadow-sm p-4 border-b-4 border-yellow-400">
+                <div className="flex items-center space-x-5 bg-white rounded-xl shadow-sm p-4">
                     <div className="bg-yellow-400 rounded-full p-4 text-white shadow-lg shadow-yellow-100">
                         <FaDollarSign className="text-xl" />
                     </div>
@@ -144,6 +144,7 @@ export default function Dashboard() {
                             {filteredOrders.map((order, index) => (
                                 <tr key={index} className="hover:bg-gray-50 transition-colors">
                                     <td className="py-4 font-bold text-gray-700">{order.id}</td>
+                                    
                                     <td className="py-4 flex items-center space-x-3">
                                         <img 
                                             src={order.image} 
@@ -152,6 +153,7 @@ export default function Dashboard() {
                                         />
                                         <span className="font-semibold text-gray-800">{order.menu}</span>
                                     </td>
+                                    
                                     <td className="py-4 text-gray-600">{order.name}</td>
                                     <td className="py-4">
                                         <span className={`px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider ${
@@ -173,6 +175,7 @@ export default function Dashboard() {
                         </tbody>
                     </table>
                 </div>
+                
                 {/* Info jika data kosong setelah difilter */}
                 {filteredOrders.length === 0 && (
                     <div className="text-center py-10 text-gray-400">

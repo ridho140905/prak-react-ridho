@@ -85,7 +85,7 @@ export default function Header() {
                 {/* Profile Section */}
                 <div id="profile-container" className="flex items-center space-x-4 border-l pl-4 border-gray-300">
                     <span id="profile-text" className="hidden md:block">
-                        Hello, <b>Fikri Muhaffizh</b>
+                        Hello, <b>Ridho Prasetyo</b>
                     </span>
                     <img
                         id="profile-avatar"

@@ -1,21 +1,39 @@
-export default function PageHeader(props) {
+export default function PageHeader({ title, breadcrumb, children }) {
     return (
-        <div id="pageheader-container"className="flex items-center justify-between p-4">
-            <div id="pageheader-left"className="flex flex-col">
-                <span id="page-title"className="text-3xl font-semibold">
-                    {props.title}
-                </span>
-                <div id="breadcrumb-links"className="flex items-center font-medium space-x-2 mt-2">
-                    <span id="breadcrumb-home"className="text-gray-500">Dashboard</span>
-                    <span id="breadcrumb-separator"className="text-gray-500">/</span>
-                    <span id="breadcrumb-current"className="text-gray-500">Order List</span>
+        <div id="pageheader-container" className="flex items-center justify-between p-4 mb-4">
+            
+            <div id="pageheader-left" className="flex flex-col">
+                {/* Menampilkan Judul Utama */}
+                <h1 className="text-3xl font-bold text-gray-800">
+                    {title}
+                </h1>
+                
+                {/* Menampilkan Breadcrumb (Navigasi) */}
+                <div className="flex items-center space-x-2 mt-2 text-base font-medium">
+                    {Array.isArray(breadcrumb) ? (
+                        breadcrumb.map((item, index) => (
+                            <span key={index} className="flex items-center space-x-2">
+                                {/* Warna hijau untuk teks terakhir, abu-abu untuk teks sebelumnya */}
+                                <span className={index === breadcrumb.length - 1 ? "text-hijau font-bold" : "text-gray-500"}>
+                                    {item}
+                                </span>
+                                {/* Tanda garis miring (/) */}
+                                {index < breadcrumb.length - 1 && (
+                                    <span className="text-gray-400">/</span>
+                                )}
+                            </span>
+                        ))
+                    ) : (
+                        <span className="text-hijau font-bold">{breadcrumb}</span>
+                    )}
                 </div>
             </div>
+
+            {/* Menampilkan Tombol atau Elemen Tambahan */}
             <div id="action-button">
-                <button id="add-button"className="bg-hijau text-white px-4 py-2 rounded-lg">
-		                Add Button
-		            </button>
+                {children}
             </div>
+            
         </div>
     );
 }
