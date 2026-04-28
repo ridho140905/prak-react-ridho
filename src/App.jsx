@@ -1,23 +1,35 @@
-import { useState } from "react";
+import React, { Suspense, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import "./assets/tailwind.css";
-import Dashboard from "./pages/Dashboard";
+// import Dashboard from "./pages/Dashboard";
+
 import { Route, Routes } from "react-router-dom";
-import Orders from "./pages/Orders";
-import Customers from "./pages/Customers";
+import Loading from "./components/Loading";
+// import Orders from "./pages/Orders";
+// import Customers from "./pages/Customers";
 
 // Import komponen ErrorPage yang baru
-import ErrorPage from "./pages/ErrorPage";
-import MainLayout from "./layouts/MainLayout";
-import Login from "./pages/auth/Login";
-import Register from "./pages/auth/Register";
-import Forgot from "./pages/auth/Forgot";
-import AuthLayout from "./layouts/AuthLayout";
+// import ErrorPage from "./pages/ErrorPage";
+// import MainLayout from "./layouts/MainLayout";
+// import Login from "./pages/auth/Login";
+// import Register from "./pages/auth/Register";
+// import Forgot from "./pages/auth/Forgot";
+// import AuthLayout from "./layouts/AuthLayout";
+const Customers = React.lazy(() => import("./pages/Customers"))
+const Orders = React.lazy(() => import("./pages/Orders"))
+const MainLayout = React.lazy(() => import("./layouts/MainLayout"))
+const ErrorPage = React.lazy(() => import("./pages/ErrorPage"))
+const Login = React.lazy(() => import("./pages/auth/Login"))
+const Register = React.lazy(() => import("./pages/auth/Register"))
+const Forgot = React.lazy(() => import("./pages/auth/Forgot"))
+const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"))
+const Dashboard = React.lazy(() => import("./pages/Dashboard"))
 
 function App() {
   return (
     <>
+      <Suspense fallback={<Loading />}>
       <Routes>
         {/* Rute Halaman Utama */}
         <Route element={<MainLayout />}>
@@ -77,6 +89,7 @@ function App() {
             <Route path="/forgot" element={<Forgot/>} />
         </Route> 
       </Routes>
+      </Suspense>
     </>
   );
 }
