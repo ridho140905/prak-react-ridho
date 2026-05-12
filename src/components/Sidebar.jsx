@@ -1,4 +1,4 @@
-import { MdDashboard, MdShoppingCart, MdPeople, MdAnalytics, MdAdd, MdErrorOutline } from "react-icons/md";
+import { MdDashboard, MdShoppingCart, MdPeople, MdAnalytics, MdAdd, MdErrorOutline, MdInventory } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 
 
@@ -41,7 +41,13 @@ export default function Sidebar() {
                             <MdPeople className="mr-4 text-xl" />
                             <span>Customers</span>
                         </NavLink>
-                    </li> 
+                    </li>
+                    <li>
+                        <NavLink to="/products" className={menuClass}>
+                            <MdInventory className="mr-4 text-xl" />
+                            <span>Products</span>
+                        </NavLink>
+                    </li>
 
                     {/* PEMBATAS (Opsional agar rapi) */}
                     <div className="pt-4 pb-2">

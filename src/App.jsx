@@ -18,6 +18,7 @@ import Loading from "./components/Loading";
 // import AuthLayout from "./layouts/AuthLayout";
 const Customers = React.lazy(() => import("./pages/Customers"))
 const Orders = React.lazy(() => import("./pages/Orders"))
+const Product = React.lazy(() => import("./pages/Product"))
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"))
 const ErrorPage = React.lazy(() => import("./pages/ErrorPage"))
 const Login = React.lazy(() => import("./pages/auth/Login"))
@@ -25,6 +26,7 @@ const Register = React.lazy(() => import("./pages/auth/Register"))
 const Forgot = React.lazy(() => import("./pages/auth/Forgot"))
 const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"))
 const Dashboard = React.lazy(() => import("./pages/Dashboard"))
+const ProductDetail = React.lazy(() => import("./pages/ProductDetail"))
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/customers" element={<Customers />} />
+          <Route path="/products" element={<Product />} />
+          <Route path="/products/:id" element={<ProductDetail />} /> 
 
           {/* RUTE ERROR (400, 401, 403) */}
           <Route
@@ -82,6 +86,7 @@ function App() {
               />
             }
           />
+          <Route path="/products/:id" element={<ProductDetail />} /> 
         </Route>
          <Route element={<AuthLayout/>}>
             <Route path="/login" element={<Login />} />
